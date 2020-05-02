@@ -1,4 +1,9 @@
-# mall
+# vue全家桶商城实战项目，仅供学习交流
+
+## 效果演示
+```
+<a href="https://felbc.github.io/lbcShopmall/index.html">查看效果请戳这里</a>
+```
 
 ## Project setup
 ```
