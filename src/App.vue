@@ -8,8 +8,8 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-// import axios from 'axios'
-import jsonp from 'jsonp'
+import axios from 'axios'
+// import jsonp from 'jsonp'
 
 export default {
   name: 'App',
@@ -23,15 +23,15 @@ export default {
   },
   mounted() {
     // let url = "https://www.easy-mock.com/mock/5b012c1fe6e1035843cd3aff/mockapi/table/list";
-    let url = "https://www.imooc.com/activity/newcomer";
-    // axios.get(url).then((res)=>{
-    //   console.log(res);
-    // })
-    jsonp(url,{},(err,res)=>{
-      let result = res;
-      this.data = result;
-      console.log(this.data);
+    let url = "/api/activity/newcomer";
+    axios.get(url).then((res)=>{
+      console.log(res);
     })
+    // jsonp(url,{},(err,res)=>{
+    //   let result = res;
+    //   this.data = result;
+    //   console.log(this.data);
+    // })
   },
 }
 </script>

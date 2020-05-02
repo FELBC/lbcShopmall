@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "author": "lbc",
   "homepage":"https://felbc.github.io/lbcShopmall/index.html",
-  "description":"一个vue全家桶商城项目"
+  "description":"一个vue全家桶商城项目",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
