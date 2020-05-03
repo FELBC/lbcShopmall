@@ -18,12 +18,22 @@ export default {
   mounted() {
     // 本地加载请求静态json文件的形式
     // this.axios.get('/mock/user/login.json').then(res=>{
-    //   console.log(res)
+      // console.log(res)
+      // this.res = res;
     // })
 
     // 通过easy-mock平台实现数据mock
-      this.axios.get('/user/login').then(res=>{
+    // this.axios.get('/user/login').then(res=>{
+      // console.log(res)
+      // this.res = res;
+    // })
+
+    // 本地集成mockjs实现数据mock
+    // ajax请求被拦截，缺点看不到浏览器XHR请求报文，跟真实接口请求还是有差距
+    // 优点可插拔，代码污染性小
+    this.axios.get('/user/login').then(res=>{
       console.log(res)
+      this.res = res;
     })
   },
 }

@@ -5,9 +5,26 @@ import VueAxios from 'vue-axios' // 将作用域对象挂载到vue实例上，�
 import App from './App.vue'
 // import env from './env'
 
+/**
+ * mock文件'./mock/api'不能用import导入，需要用require，
+ * import与require区别：
+ * import预编译加载，在编译的时候文件就会被加载进来写入到内存，
+ * require从上到下执行的时候才会加载，
+ * mock为false的时候mock文件'./mock/api'不会被加载，
+ * mock文件一旦被加载进来发送接口请求就会永远被拦截，
+ * 只有mock开关为true被打开的时候才希望被拦截使用模拟数据
+*/
+
+// mock开关
+const mock = true;
+if(mock){
+  require('./mock/api')
+}
+
+// axios.defaults.baseURL = 'https://www.easy-mock.com/mock/5eaeb7eaa47fe9570ba1346f'; // easy-mock
+
 // 根据前端的跨域方式做调整
-// axios.defaults.baseURL = '/api'; // 接口代理/a/b : /api/a/b => /a/b：当前接口域名和前端域名一样可简写
-axios.defaults.baseURL = 'https://www.easy-mock.com/mock/5eaeb7eaa47fe9570ba1346f'; // easy-mock
+axios.defaults.baseURL = '/api'; // 接口代理/a/b : /api/a/b => /a/b：当前接口域名和前端域名一样可简写
 axios.defaults.timeout = 8000; // 请求超时时间，提升用户体验
 // 根据环境变量获取不同的请求地址
 // jsonp，cros当后端域名与前端不一样时候需全写，eg：'http:///www.dev.com/api'
