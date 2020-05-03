@@ -7,6 +7,7 @@ import App from './App.vue'
 
 // 根据前端的跨域方式做调整
 // axios.defaults.baseURL = '/api'; // 接口代理/a/b : /api/a/b => /a/b：当前接口域名和前端域名一样可简写
+axios.defaults.baseURL = 'https://www.easy-mock.com/mock/5eaeb7eaa47fe9570ba1346f'; // easy-mock
 axios.defaults.timeout = 8000; // 请求超时时间，提升用户体验
 // 根据环境变量获取不同的请求地址
 // jsonp，cros当后端域名与前端不一样时候需全写，eg：'http:///www.dev.com/api'
