@@ -7,9 +7,7 @@ module.exports = {
     port:8080,
     proxy:{
       '/api':{
-        target:'http://dev-mall-pre.springboot.cn/api',
-        // target:'http://test-mall-pre.springboot.cn/api',
-        // target:'http://mall-pre.springboot.cn/api',
+        target:'http://mall-pre.springboot.cn', // 线上接口地址
         changeOrigin:true,
         pathRewrite:{
           '/api':''
