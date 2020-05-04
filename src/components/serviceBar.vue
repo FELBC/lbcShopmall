@@ -45,6 +45,9 @@ export default {
       .icon-post{
         @include bgImg(20px,20px,'/imgs/icon-post.png');
       }
+      &:last-child{
+        border-right: none;
+      }
     }
   }
 </style>
