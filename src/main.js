@@ -15,13 +15,11 @@ import App from './App.vue'
  * 只有mock开关为true被打开的时候才希望被拦截使用模拟数据
 */
 
-// mock开关
-const mock = true;
+// mock开关,true使用本地mock拦截数据，false使用接口数据
+const mock = false;
 if(mock){
   require('./mock/api')
 }
-
-// axios.defaults.baseURL = 'https://www.easy-mock.com/mock/5eaeb7eaa47fe9570ba1346f'; // easy-mock
 
 // 根据前端的跨域方式做调整
 axios.defaults.baseURL = '/api'; // 接口代理/a/b : /api/a/b => /a/b：当前接口域名和前端域名一样可简写
@@ -29,6 +27,7 @@ axios.defaults.timeout = 8000; // 请求超时时间，提升用户体验
 // 根据环境变量获取不同的请求地址
 // jsonp，cros当后端域名与前端不一样时候需全写，eg：'http:///www.dev.com/api'
 // axios.defaults.baseURL = env.baseURL;
+// axios.defaults.baseURL = 'https://www.easy-mock.com/mock/5eaeb7eaa47fe9570ba1346f'; // easy-mock
 
 // 接口错误拦截(状态码需前后台根据业务协定,eg:0-成功，10-未登录)
 axios.interceptors.response.use(function(response){
