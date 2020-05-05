@@ -14,3 +14,5 @@
 ## 2.vue.config.js修改完需重启才能生效
 
 ## 3.Mock.mock后面匹配的接口地址需要用正则, eg：/user\/login/,不然拦截不到接口
+
+## 4.build生成dist放到github图片找不到路径问题(待解决)
