@@ -2,6 +2,7 @@ import Vue from 'vue'
 import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios' // 将作用域对象挂载到vue实例上，方便用this调用
+import VueLazyLoad from "vue-lazyload"
 import App from './App.vue'
 // import env from './env'
 
@@ -53,6 +54,9 @@ axios.interceptors.request.use(function (config) {
 
 // 加载插件
 Vue.use(VueAxios,axios);
+Vue.use(VueLazyLoad,{
+  loading:'/imgs/loading-svg/loading-bars.svg'
+});
 // 默认非生产环境
 Vue.config.productionTip = false
 
