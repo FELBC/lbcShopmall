@@ -51,7 +51,7 @@
                 <li class="product">
                   <a href="" target="_blank">
                     <div class="pro-img">
-                      <img v-lazy="'/imgs/nav-img/nav-3-1.jpg'">
+                      <img v-lazy="require('./../assets/imgs/nav-img/nav-3-1.jpg')">
                     </div>
                     <div class="pro-name">小米壁画电视 65英寸</div>
                     <div class="pro-price">6999元</div>
@@ -60,7 +60,7 @@
                 <li class="product">
                   <a href="" target="_blank">
                     <div class="pro-img">
-                      <img v-lazy="'/imgs/nav-img/nav-3-2.jpg'">
+                      <img v-lazy="require('./../assets/imgs/nav-img/nav-3-2.jpg')">
                     </div>
                     <div class="pro-name">小米全面屏电视E55A</div>
                     <div class="pro-price">1999元</div>
@@ -69,7 +69,7 @@
                 <li class="product">
                   <a href="" target="_blank">
                     <div class="pro-img">
-                      <img v-lazy="'/imgs/nav-img/nav-3-3.png'">
+                      <img v-lazy="require('./../assets/imgs/nav-img/nav-3-3.png')">
                     </div>
                     <div class="pro-name">小米电视4A 32英寸</div>
                     <div class="pro-price">699元</div>
@@ -78,7 +78,7 @@
                 <li class="product">
                   <a href="" target="_blank">
                     <div class="pro-img">
-                      <img v-lazy="'/imgs/nav-img/nav-3-4.jpg'">
+                      <img v-lazy="require('./../assets/imgs/nav-img/nav-3-4.jpg')">
                     </div>
                     <div class="pro-name">小米电视4A 55英寸</div>
                     <div class="pro-price">1799元</div>
@@ -87,7 +87,7 @@
                 <li class="product">
                   <a href="" target="_blank">
                     <div class="pro-img">
-                      <img v-lazy="'/imgs/nav-img/nav-3-5.jpg'">
+                      <img v-lazy="require('./../assets/imgs/nav-img/nav-3-5.jpg')">
                     </div>
                     <div class="pro-name">小米电视4A 65英寸</div>
                     <div class="pro-price">2699元</div>
@@ -96,7 +96,7 @@
                 <li class="product">
                   <a href="" target="_blank">
                     <div class="pro-img">
-                      <img v-lazy="'/imgs/nav-img/nav-3-6.png'">
+                      <img v-lazy="require('./../assets/imgs/nav-img/nav-3-6.png')">
                     </div>
                     <div class="pro-name">查看全部</div>
                     <div class="pro-price">查看全部</div>
@@ -179,7 +179,7 @@ export default {
           text-align: center;
           color:#fff;
           .icon-cart{
-            @include bgImg(16px,12px,'/imgs/icon-cart-checked.png',contain);
+            @include bgImg(16px,12px,'./../assets/imgs/icon-cart-checked.png',contain);
             margin-right: 4px;
           }
         }
@@ -201,12 +201,12 @@ export default {
             height:55px;
             &:before{
               content:' ';
-              @include bgImg(55px,55px,'/imgs/mi-logo.png',55px);
+              @include bgImg(55px,55px,'./../assets/imgs/mi-logo.png',55px);
               transition: margin .2s;
             }
             &:after{
               content:' ';
-              @include bgImg(55px,55px,'/imgs/mi-home.png',55px);
+              @include bgImg(55px,55px,'./../assets/imgs/mi-home.png',55px);
             }
             &:hover:before{
               margin-left:-55px;
@@ -308,7 +308,7 @@ export default {
               padding-left:15px;
             }
             a{
-              @include bgImg(18px,18px,'/imgs/icon-search.png',contain);              
+              @include bgImg(18px,18px,'./../assets/imgs/icon-search.png',contain);              
               margin-left:17px;
             }
           }

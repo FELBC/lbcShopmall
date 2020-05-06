@@ -2,7 +2,7 @@
   <div class="login">
     <div class="container">
       <a href="/#/index">
-        <img src="/imgs/login-logo.png" alt="">
+        <img src="./../assets/imgs/login-logo.png" alt="">
       </a>
     </div>
     <div class="wrapper">
@@ -69,7 +69,7 @@
       }
     }
     .wrapper{
-      background:url('/imgs/login-bg.jpg') no-repeat center;
+      background:url('./../assets/imgs/login-bg.jpg') no-repeat center;
       .container{
         height:576px;
         .login-form{

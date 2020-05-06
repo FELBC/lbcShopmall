@@ -10,7 +10,7 @@
                 <ul v-for="(item,index) in menuList" :key="index">
                   <li v-for="(sub,idx) in item" :key="idx">
                     <a :href="sub?`/#/product/${sub.id}`:''">
-                      <img :src="sub?sub.img:'/imgs/item-box-1.png'" alt="">
+                      <img :src="sub?sub.img:require('./../assets/imgs/item-box-1.png')" alt="">
                       {{sub?sub.name:'小米9'}}
                     </a>
                   </li>
@@ -53,12 +53,12 @@
       </div>
       <div class="ads-box">
         <a :href="`/#/product/${item.id}`" v-for="(item,index) in adsList" :key="index">
-          <img v-lazy="item.img" alt="">
+          <img :src="item.img" alt="">
         </a>
       </div>
       <div class="banner">
         <a :href="`/#/product/30`">
-          <img v-lazy="'/imgs/banner-1.png'" alt="">
+          <img v-lazy="require('./../assets/imgs/banner-1.png')" alt="">
         </a>
       </div>
     </div>
@@ -68,7 +68,7 @@
         <div class="wrapper">
           <div class="banner-left">
             <a href="/#/product/35">
-              <img v-lazy="'/imgs/mix-alpha.jpg'" alt="">
+              <img v-lazy="require('./../assets/imgs/mix-alpha.jpg')" alt="">
             </a>
           </div>
           <div class="list-box">
@@ -142,45 +142,45 @@ export default {
         slideList:[
           {
             id:'42',
-            img:'/imgs/slider/slide-1.jpg'
+            img:require('./../assets/imgs/slider/slide-1.jpg')
           },
           {
             id:'45',
-            img:'/imgs/slider/slide-2.jpg'
+            img:require('./../assets/imgs/slider/slide-2.jpg')
           },
           {
             id:'46',
-            img:'/imgs/slider/slide-3.jpg'
+            img:require('./../assets/imgs/slider/slide-3.jpg')
           },
           {
             id:'',
-            img:'/imgs/slider/slide-4.jpg'
+            img:require('./../assets/imgs/slider/slide-4.jpg')
           },
           {
             id:'',
-            img:'/imgs/slider/slide-5.jpg'
+            img:require('./../assets/imgs/slider/slide-5.jpg')
           }
         ],
         menuList:[
           [
             {
               id:30,
-              img:'/imgs/item-box-1.png',
+              img:require('./../assets/imgs/item-box-1.png'),
               name:'小米CC9'
             },
             {
               id:31,
-              img:'/imgs/item-box-2.png',
+              img:require('./../assets/imgs/item-box-2.png'),
               name:'小米8青春版'
             },
             {
               id:32,
-              img:'/imgs/item-box-3.jpg',
+              img:require('./../assets/imgs/item-box-3.jpg'),
               name:'Redmi K20 Pro'
             },
             {
               id:33,
-              img:'/imgs/item-box-4.jpg',
+              img:require('./../assets/imgs/item-box-4.jpg'),
               name:'移动4G专区'
             }
           ],
@@ -193,19 +193,19 @@ export default {
         adsList:[
           {
             id:33,
-            img:'/imgs/ads/ads-1.png'
+            img:require('./../assets/imgs/ads/ads-1.png')
           },
           {
             id:48,
-            img:'/imgs/ads/ads-2.jpg'
+            img:require('./../assets/imgs/ads/ads-2.jpg')
           },
           {
             id:45,
-            img:'/imgs/ads/ads-3.png'
+            img:require('./../assets/imgs/ads/ads-3.png')
           },
           {
             id:47,
-            img:'/imgs/ads/ads-4.jpg'
+            img:require('./../assets/imgs/ads/ads-4.jpg')
           }
         ],
         phoneList:[],
@@ -273,7 +273,7 @@ export default {
                 right:30px;
                 top:17.5px;
                 content:'';
-                @include bgImg(10px,15px,'/imgs/icon-arrow.png');
+                @include bgImg(10px,15px,'./../assets/imgs/icon-arrow.png');
               }
             }
             &:hover{
@@ -410,7 +410,7 @@ export default {
                   font-weight: bold;
                   cursor:pointer;
                   &:after{
-                    @include bgImg(22px,22px,'/imgs/icon-cart-hover.png');
+                    @include bgImg(22px,22px,'./../assets/imgs/icon-cart-hover.png');
                     content:' ';
                     margin-left: 5px;
                     vertical-align: middle;
