@@ -18,7 +18,7 @@ import App from './App.vue'
 */
 
 // mock开关,true使用本地mock拦截数据，false使用接口数据
-const mock = true;
+const mock = false;
 if(mock){
   require('./mock/api')
 }
@@ -34,11 +34,14 @@ axios.defaults.timeout = 8000; // 请求超时时间，提升用户体验
 // 接口错误拦截(状态码需前后台根据业务协定,eg:0-成功，10-未登录)
 axios.interceptors.response.use(function(response){
   let res = response.data;
+  let path = location.hash;
   if(res.status === 0){
     return res.data;
   }else if(res.status === 10){
-    // 无法使用路由进行跳转，路由挂载在vue实例，App.vue及每个页面才能使用this.$route.push,取不到this
-    window.location.href='/#/login'; 
+    if(path !== '#/index'){
+      // 无法使用路由进行跳转，路由挂载在vue实例，App.vue及每个页面才能使用this.$route.push,取不到this
+      window.location.href='/#/login'; 
+    }
   }else{
     return Promise.reject(res);
   }

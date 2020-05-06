@@ -196,3 +196,26 @@ Mock.mock(/products/, 'get', {
 			"navigateLastPage":2
 	}
 });
+
+// 用户信息
+Mock.mock(/user/, 'get',{
+	"status":0,
+	"data":{
+			"id":654,
+			"username":"qiufeng",
+			"password":"",
+			"email":"qiufeng@163.com",
+			"phone":null,
+			"question":null,
+			"answer":null,
+			"role":0,
+			"createTime":1588802124000,
+			"updateTime":1588802124000
+	}
+});
+
+// 购物车商品列表
+Mock.mock(/carts\/products\/sum/, 'get',{
+	"status":0,
+	"data":0
+});
