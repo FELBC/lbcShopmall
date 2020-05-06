@@ -15,4 +15,10 @@
 
 ## 3.Mock.mock后面匹配的接口地址需要用正则, eg：/user\/login/,不然拦截不到接口
 
-## 4.build生成dist放到github图片找不到路径问题(待解决)
+## 4.build生成dist放到github图片找不到路径问题,public目录引用为绝对路径，
+## 项目部署在https://felbc.github.io/lbcShopmall这是一个二级目录，不是根目录，
+## 绝对路径引用会有问题，如果都是根目录，则开发环境和生产环境都没问题，
+## 解决办法，将imgs文件夹移动到assets下，所有页面data里面图片地址通过require引用
+
+## 5.github gh-pages只支持静态资源部署，ajax异步请求不允许会导致数据加载不出来，
+## 解决办法，所有真实接口请求到的数据修改为本地mock
