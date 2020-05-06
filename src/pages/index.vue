@@ -89,7 +89,7 @@
         </div>
       </div>
     </div>
-    <ServiceBar></ServiceBar>
+    <service-bar></service-bar>
     <Modal 
       title="提示" 
       sureText="查看购物车" 
