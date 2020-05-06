@@ -3,7 +3,7 @@
     <div class="nav-topbar">
       <div class="container">
         <div class="topbar-menu">
-          <a href="https://www.mi.com/index.html" target="_blank">小米商城</a>
+          <a href="https://www.mi.com/index.html" target="_blank">景云商城</a>
           <a href="https://www.miui.com/" target="_blank">MUI</a>
           <a href="https://i.mi.com/" target="_blank">云服务</a>
           <a href="https://www.mi.com/aptitude/list" target="_blank">协议规则</a>
@@ -14,7 +14,7 @@
           <a href="javascript:;" v-if="username">我的订单</a>
           <a href="javascript:;" class="my-cart" @click="goToCart">
             <span class="icon-cart"></span>
-            购物车
+            购物车({{cartCount}})
           </a>
         </div>
       </div>
@@ -117,13 +117,25 @@
   </div>
 </template>
 <script>
+import { mapState } from 'vuex'; // mapGetters
 export default {
   name:'nav-header',
   data(){
     return{
-      username:'',
       phoneList:[]
     }
+  },
+  computed:{
+    // username(){
+    //   return this.$store.state.username;
+    // },
+    // cartCount(){
+    //   return this.$store.state.cartCount;
+    // }
+
+    ...mapState(['username','cartCount'])
+
+    // ...mapGetters(['username','cartCount'])
   },
   filters:{
     currency(val){

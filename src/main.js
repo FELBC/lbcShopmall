@@ -4,6 +4,7 @@ import axios from 'axios'
 import VueAxios from 'vue-axios' // 将作用域对象挂载到vue实例上，方便用this调用
 import VueLazyLoad from "vue-lazyload"
 import VueCookie from 'vue-cookie'
+import store from './store'
 import App from './App.vue'
 // import env from './env'
 
@@ -66,6 +67,7 @@ Vue.use(VueLazyLoad,{
 Vue.config.productionTip = false
 
 new Vue({
+  store,
   router,
   render: h => h(App),
 }).$mount('#app')
