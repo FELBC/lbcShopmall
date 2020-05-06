@@ -3,6 +3,7 @@ import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios' // 将作用域对象挂载到vue实例上，方便用this调用
 import VueLazyLoad from "vue-lazyload"
+import VueCookie from 'vue-cookie'
 import App from './App.vue'
 // import env from './env'
 
@@ -39,7 +40,7 @@ axios.interceptors.response.use(function(response){
     // 无法使用路由进行跳转，路由挂载在vue实例，App.vue及每个页面才能使用this.$route.push,取不到this
     window.location.href='/#/login'; 
   }else{
-    alert(res.msg)
+    return Promise.reject(res);
   }
 })
 
@@ -54,6 +55,7 @@ axios.interceptors.request.use(function (config) {
 
 // 加载插件
 Vue.use(VueAxios,axios);
+Vue.use(VueCookie)
 Vue.use(VueLazyLoad,{
   loading:require('./assets/imgs/loading-svg/loading-bars.svg')
 });

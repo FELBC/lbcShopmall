@@ -44,17 +44,31 @@
     name:'login',
     data(){
       return{
-        username:'',
-        password:'',
+        username:'qiufeng',
+        password:'qiufeng',
         userId:''
       }
     },
     methods: {
       login(){
-
+        let { username, password} = this;
+        this.axios.post('/user/login',{
+          username,
+          password
+        }).then(res=>{
+          this.$cookie.set('userId',res.id,{expires:'1M'});
+          // to-do 保存用户名
+          this.$router.push('/index');
+        });
       },
       register(){
-
+        this.axios.post('/user/register',{
+          username:'qiufeng',
+          password:'qiufeng',
+          email:'qiufeng@163.com'
+        }).then(()=>{
+          alert('注册成功')
+        });
       }
     },
   }
@@ -105,7 +119,6 @@
               height:100%;
               border:none;
               padding-left:18px;
-              box-sizing: border-box;
             }
           }
           .btn{

@@ -5,17 +5,27 @@ Mock.setup({
 })
 
 // 登录
-Mock.mock(/user\/login/, 'get', {
-  "status": 0,
-  "data": {
-    "id|10001-11000": 0,
-    "username": "@cname",
-    "email": "@email",
-    "phone|1": /^1[0-9]{10}$/,
-    "role|1": ['管理员','普通用户'],
-    "createTime": "@date",
-    "updateTime": "@date"
-  }
+Mock.mock(/user\/login/, 'post', {
+	"status":0,
+	"msg":"登录成功",
+	"data":{
+			"id":7,
+			"username":"jack",
+			"password":"",
+			"email":"jack@163.com",
+			"phone":null,
+			"question":null,
+			"answer":null,
+			"role":0,
+			"createTime":1567429971000,
+			"updateTime":1567429971000
+	}
+});
+
+// 注册
+Mock.mock(/user\/register/, 'post', {
+	"status":0,
+	"msg":"注册成功"
 });
 
 // 产品列表

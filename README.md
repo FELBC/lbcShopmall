@@ -2,7 +2,7 @@
 
 ## 效果演示
 
-<a href="https://felbc.github.io/lbcShopmall/index.html" target="_blank">
+<a href="https://felbc.github.io/lbcShopmall/#/index" target="_blank">
   查看效果请戳这里
 </a>
 
