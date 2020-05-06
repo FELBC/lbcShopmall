@@ -55,7 +55,7 @@ axios.interceptors.request.use(function (config) {
 // 加载插件
 Vue.use(VueAxios,axios);
 Vue.use(VueLazyLoad,{
-  loading:'/imgs/loading-svg/loading-bars.svg'
+  loading:require('./assets/imgs/loading-svg/loading-bars.svg')
 });
 // 默认非生产环境
 Vue.config.productionTip = false
