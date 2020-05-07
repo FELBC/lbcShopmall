@@ -29,7 +29,7 @@ Mock.mock(/user\/register/, 'post', {
 });
 
 // 产品列表
-Mock.mock(/products/, 'get', {
+Mock.mock(/products(|\?\S*)$/, 'get', {
 	"status":0,
 	"data":{
 			"total":19,
@@ -215,7 +215,28 @@ Mock.mock(/user/, 'get',{
 });
 
 // 购物车商品列表
-Mock.mock(/carts\/products\/sum/, 'get',{
+Mock.mock(/carts\/products\/sum(|\?\S*)$/, 'get',{
 	"status":0,
 	"data":0
+});
+
+// 产品详情
+Mock.mock(/products\/id(|\?\S*)$/, 'get',{
+	"status":0,
+	"data":{
+			"id":33,
+			"categoryId":100012,
+			"name":"小米9",
+			"subtitle":"小米9 战斗天使",
+			"mainImage":"https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/2c9307e9690dfbca39d8de770a7a8664.png",
+			"subImages":null,
+			"detail":null,
+			"price":2599,
+			"stock":9530,
+			"status":1,
+			"createTime":"2019-09-06 01:09:26",
+			"updateTime":"2019-09-06 01:09:29",
+			"imageHost":"http://img.springboot.cn",
+			"parentCategoryId":100002
+	}
 });
