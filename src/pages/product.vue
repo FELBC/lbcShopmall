@@ -5,6 +5,16 @@
         <button class="btn">立即购买</button>
       </template>
     </product-param>
+    <div class="h">123</div>
+    <div class="h">123</div>
+    <div class="h">123</div>
+    <div class="h">123</div>
+    <div class="h">123</div>
+    <div class="h">123</div>
+    <div class="h">123</div>
+    <div class="h">123</div>
+    <div class="h">123</div>
+    <div class="h">123</div>
   </div>
 </template>
 <script>
@@ -18,6 +28,10 @@
 </script>
 <style lang="scss">
   .product{
+    .h{
+      height: 150px;
+      background-color: green;
+    }
     button{
       margin-left:10px;
     }
