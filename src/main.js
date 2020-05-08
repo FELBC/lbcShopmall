@@ -19,7 +19,7 @@ import App from './App.vue'
 */
 
 // mock开关,true使用本地mock拦截数据，false使用接口数据
-const mock = false;
+const mock = false
 if(mock){
   require('./mock/api')
 }

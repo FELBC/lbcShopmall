@@ -265,3 +265,139 @@ Mock.mock(/carts/, 'post',{
 			"cartTotalQuantity":1
 	}
 });
+
+// 全选中
+Mock.mock(/carts\/selectAll/, 'put',{
+	"status":0,
+	"data":{
+			"cartProductVoList":[
+					{
+							"productId":33,
+							"quantity":14,
+							"productName":"小米9",
+							"productSubtitle":"小米9 战斗天使",
+							"productMainImage":"https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/2c9307e9690dfbca39d8de770a7a8664.png",
+							"productPrice":2599,
+							"productStatus":1,
+							"productTotalPrice":36386,
+							"productStock":9529,
+							"productSelected":true
+					},
+					{
+							"productId":30,
+							"quantity":6,
+							"productName":"小米CC9",
+							"productSubtitle":"3200万+4800万 前后双旗舰相机",
+							"productMainImage":"https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/f515ab05232ed14ccd78ec67e024495a.png",
+							"productPrice":1799,
+							"productStatus":1,
+							"productTotalPrice":10794,
+							"productStock":8691,
+							"productSelected":true
+					}
+			],
+			"cartTotalPrice":47180,
+			"imageHost":"http://img.springboot.cn",
+			"selectedAll":true,
+			"cartTotalQuantity":20
+	}
+});
+
+// 全不选中
+Mock.mock(/carts\/unSelectAll/, 'put',{
+	"status":0,
+	"data":{
+			"cartProductVoList":[
+					{
+							"productId":33,
+							"quantity":14,
+							"productName":"小米9",
+							"productSubtitle":"小米9 战斗天使",
+							"productMainImage":"https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/2c9307e9690dfbca39d8de770a7a8664.png",
+							"productPrice":2599,
+							"productStatus":1,
+							"productTotalPrice":36386,
+							"productStock":9529,
+							"productSelected":false
+					},
+					{
+							"productId":30,
+							"quantity":6,
+							"productName":"小米CC9",
+							"productSubtitle":"3200万+4800万 前后双旗舰相机",
+							"productMainImage":"https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/f515ab05232ed14ccd78ec67e024495a.png",
+							"productPrice":1799,
+							"productStatus":1,
+							"productTotalPrice":10794,
+							"productStock":8691,
+							"productSelected":false
+					}
+			],
+			"cartTotalPrice":0,
+			"imageHost":"http://img.springboot.cn",
+			"selectedAll":false,
+			"cartTotalQuantity":20
+	}
+});
+
+// 更新购物车某个产品数量 /\/goods\/\d+/
+Mock.mock(/carts\/\d+/, 'put',{
+	"status":0,
+	"data":{
+			"cartProductVoList":[
+					{
+							"productId":33,
+							"quantity":1,
+							"productName":"小米9",
+							"productSubtitle":"小米9 战斗天使",
+							"productMainImage":"https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/2c9307e9690dfbca39d8de770a7a8664.png",
+							"productPrice":2599,
+							"productStatus":1,
+							"productTotalPrice":2599,
+							"productStock":9529,
+							"productSelected":true
+					},
+					{
+							"productId":30,
+							"quantity":6,
+							"productName":"小米CC9",
+							"productSubtitle":"3200万+4800万 前后双旗舰相机",
+							"productMainImage":"https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/f515ab05232ed14ccd78ec67e024495a.png",
+							"productPrice":1799,
+							"productStatus":1,
+							"productTotalPrice":10794,
+							"productStock":8691,
+							"productSelected":true
+					}
+			],
+			"cartTotalPrice":13393,
+			"imageHost":"http://img.springboot.cn",
+			"selectedAll":true,
+			"cartTotalQuantity":7
+	}
+});
+
+// 移除购物车某个产品
+Mock.mock(/carts\/\d+/, 'delete',{
+	"status":0,
+	"data":{
+			"cartProductVoList":[
+					{
+							"productId":33,
+							"quantity":1,
+							"productName":"小米9d",
+							"productSubtitle":"小米9 战斗天使",
+							"productMainImage":"https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/2c9307e9690dfbca39d8de770a7a8664.png",
+							"productPrice":2599,
+							"productStatus":1,
+							"productTotalPrice":2599,
+							"productStock":9528,
+							"productSelected":true
+					}
+			],
+			"cartTotalPrice":2599,
+			"imageHost":"http://img.springboot.cn",
+			"selectedAll":true,
+			"cartTotalQuantity":1
+	}
+});
