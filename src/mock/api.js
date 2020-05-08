@@ -240,3 +240,28 @@ Mock.mock(/products\/id(|\?\S*)$/, 'get',{
 			"parentCategoryId":100002
 	}
 });
+
+// 购物车添加商品
+Mock.mock(/carts/, 'post',{
+	"status":0,
+	"data":{
+			"cartProductVoList":[
+					{
+							"productId":33,
+							"quantity":221,
+							"productName":"小米9",
+							"productSubtitle":"小米9 战斗天使",
+							"productMainImage":"https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/2c9307e9690dfbca39d8de770a7a8664.png",
+							"productPrice":2599,
+							"productStatus":1,
+							"productTotalPrice":2599,
+							"productStock":9529,
+							"productSelected":true
+					}
+			],
+			"cartTotalPrice":2599,
+			"imageHost":"http://img.springboot.cn",
+			"selectedAll":true,
+			"cartTotalQuantity":1
+	}
+});

@@ -43,6 +43,7 @@ axios.interceptors.response.use(function(response){
       // 无法使用路由进行跳转，路由挂载在vue实例，App.vue及每个页面才能使用this.$route.push,取不到this
       window.location.href='/#/login'; 
     }
+    return Promise.reject(res);
   }else{
     return Promise.reject(res);
   }
