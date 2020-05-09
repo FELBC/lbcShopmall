@@ -11,7 +11,7 @@
 ## 最终发布地址为https://felbc.github.io/lbcShopmall/index.html，
 ## 暂时没有找到更好的解决办法，应该有相应的自动化部署办法，有时间再折腾
 
-## 2.vue.config.js修改完需重启才能生效
+## 2.vue.config.js修改完,其他配置文件添加修改eg:.babelrc添加都需重启才能生效
 
 ## 3.Mock.mock后面匹配的接口地址需要用正则, eg：/user\/login/,不然拦截不到接口
 
@@ -24,3 +24,6 @@
 ## 解决办法，所有真实接口请求到的数据修改为本地mock
 
 ## 6.Mock.mock get请求正则需要精确匹配，不然会出现某个接口请求拦截的时候，多个后台接口路径被同时匹配到，导致另外一个不是我们请求的接口数据拦截返回的问题，post不需要，正则需要进一步熟悉
+
+## 7.vue 给UI库添加按需加载时启动项目时 babel-preset-es2015 报错
+## 解决办法：yarn add @babel/preset-env，修改.babelrc文件，把es2015改成@babel/preset-env

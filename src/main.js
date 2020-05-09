@@ -4,6 +4,10 @@ import axios from 'axios'
 import VueAxios from 'vue-axios' // 将作用域对象挂载到vue实例上，方便用this调用
 import VueLazyLoad from "vue-lazyload"
 import VueCookie from 'vue-cookie'
+import {
+  Message
+} from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 import store from './store'
 import App from './App.vue'
 // import env from './env'
@@ -45,6 +49,7 @@ axios.interceptors.response.use(function(response){
     }
     return Promise.reject(res);
   }else{
+    Message.warning(res.msg);
     return Promise.reject(res);
   }
 })
@@ -64,6 +69,8 @@ Vue.use(VueCookie)
 Vue.use(VueLazyLoad,{
   loading:require('./assets/imgs/loading-svg/loading-bars.svg')
 });
+// 以对象原型方式在vue实例上进行扩展，避免每个组件进行引用
+Vue.prototype.$message = Message;
 // 默认非生产环境
 Vue.config.productionTip = false
 

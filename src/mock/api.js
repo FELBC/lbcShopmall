@@ -22,6 +22,12 @@ Mock.mock(/user\/login/, 'post', {
 	}
 });
 
+// 退出登录
+Mock.mock(/user\/logout/, 'post', {
+	"status":0,
+	"msg":"退出成功",
+});
+
 // 注册
 Mock.mock(/user\/register/, 'post', {
 	"status":0,
