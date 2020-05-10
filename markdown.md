@@ -27,3 +27,5 @@
 
 ## 7.vue 给UI库添加按需加载时启动项目时 babel-preset-es2015 报错
 ## 解决办法：yarn add @babel/preset-env，修改.babelrc文件，把es2015改成@babel/preset-env
+
+## 8.涉及到金额和订单的数据需要入库，鉴于安全性考虑，尽量后台计算完返给前台，前台只做渲染，用户操作需要调用接口存储
