@@ -575,3 +575,76 @@ Mock.mock(/orders/, 'post', {
 			}
 	}
 });
+
+// 订单详情
+// 订单状态：0已取消 10未付款 20已付款 40已发货 50交易成功 60交易关闭
+Mock.mock(/orders\/orderNo(|\?\S*)$/, 'get',{
+	"status":0,
+	"data":{
+			"orderNo":1589090903888,
+			"payment":3898,
+			"paymentType":1,
+			"paymentTypeDesc":"在线支付",
+			"postage":0,
+			"status":10,
+			"statusDesc":"未支付",
+			"paymentTime":"",
+			"sendTime":"",
+			"endTime":"",
+			"closeTime":"",
+			"createTime":"2020-05-11 03:08:23",
+			"orderItemVoList":[
+					{
+							"orderNo":1589090903888,
+							"productId":33,
+							"productName":"小米9",
+							"productImage":"https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/2c9307e9690dfbca39d8de770a7a8664.png",
+							"currentUnitPrice":2599,
+							"quantity":1,
+							"totalPrice":2599,
+							"createTime":"2020-05-11 03:08:23"
+					},
+					{
+							"orderNo":1589090903888,
+							"productId":31,
+							"productName":"小米CC9e",
+							"productImage":"https://cdn.cnbj0.fds.api.mi-img.com/b2c-mimall-media/df9b3e7a562e02a33eb069b3f0119815.png",
+							"currentUnitPrice":1299,
+							"quantity":1,
+							"totalPrice":1299,
+							"createTime":"2020-05-11 03:08:23"
+					}
+			],
+			"imageHost":null,
+			"shippingId":1934,
+			"receiverName":"张三",
+			"shippingVo":{
+					"receiverName":"张三",
+					"receiverPhone":null,
+					"receiverMobile":"18989898887",
+					"receiverProvince":"河北",
+					"receiverCity":"天津",
+					"receiverDistrict":"天津",
+					"receiverAddress":"顶顶顶",
+					"receiverZip":"111111"
+			}
+	}
+});
+
+// 支付
+// 支付宝支付：content是html源码，渲染到页面上后自动跳转到支付页面
+// 微信支付：content内容是支付链接，转换为二维码即可扫码支付
+Mock.mock(/pay/, 'post', {
+	// 支付宝
+	"status":0,
+	"data":{
+		"content":"<form id='bestPayForm' name=\"punchout_form\" method=\"post\" action=\"https://openapi.alipay.com//gateway.do?charset=utf-8&method=alipay.trade.page.pay&sign=ZybIoAfOnu%2BToF7nmYb9j4CTe4CuHfHFZVMdkv8RyXn0NZuYdxGHHG2ENMmVKELVVqgAZL0uXnmzQ3bKVr6dHP5BGFewoIFLPvBxhXFEXQx%2BRQpIpCSts1lZtPC49jbOCDT3rEVnzM7IVACCgAMvL3CwgVUdNjk5nsWTYB3S%2BOzya7IucARbbh8EYu%2B5RrYbd%2BX2vX2n0RYaY3kqdbkc3dV5n5JFyqSpuTSPiLXJEBWY9kAHZKWmaPeYDEUoNE4dPqIv58VcjVQWk4sUB3kq1nTQpobDJ1vQnINUkL%2BFb0qBI11w5GrwmuvFPfC%2BtG5rR1DYju2rhFE0aDTHu6NzUQ%3D%3D&return_url=http%3A%2F%2Fmi.futurefe.com%2F%23%2Forder%2Flist&notify_url=http%3A%2F%2Fmall-pre.springboot.cn%2Fpay%2Fnotify&app_id=2018062960540016&sign_type=RSA2&version=1.0&timestamp=2020-05-11+10%3A29%3A05\">\n<input type=\"hidden\" name=\"biz_content\" value=\"{&quot;out_trade_no&quot;:&quot;1589160772644&quot;,&quot;total_amount&quot;:&quot;0.01&quot;,&quot;subject&quot;:&quot;景云商城&quot;,&quot;product_code&quot;:&quot;FAST_INSTANT_TRADE_PAY&quot;}\">\n<input type=\"submit\" value=\"立即支付\" style=\"display:none\" >\n</form>\n<script>document.getElementById('bestPayForm').submit();</script>"
+	}
+
+	// 微信
+  // "status":0,
+  // "data":{
+  //   "content":"weixin://wxpay/bizpayurl?pr=LAH2UH7"
+  // }
+
+});

@@ -52,6 +52,11 @@ axios.interceptors.response.use(function(response){
     Message.warning(res.msg);
     return Promise.reject(res);
   }
+},(error)=>{
+  // 服务端异常拦截提示
+  let res = error.response;
+  Message.error(res.data.message);
+  return Promise.reject(error);
 })
 
 // 请求拦截(后台管理系统，表单查询，参数较多)

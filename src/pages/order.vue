@@ -43,6 +43,10 @@ export default {
         this.title="订单支付";
         this.tip="请谨防钓鱼链接或诈骗电话，了解更多>";
         break;
+      default:
+        this.title="订单支付";
+        this.tip="请谨防钓鱼链接或诈骗电话，了解更多>";
+        break;
     }
   },
 }
