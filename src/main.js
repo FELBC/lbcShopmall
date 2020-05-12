@@ -58,7 +58,6 @@ axios.interceptors.response.use(function(response){
   Message.error(res.data.message);
   return Promise.reject(error);
 })
-
 // 请求拦截(后台管理系统，表单查询，参数较多)
 axios.interceptors.request.use(function (config) {
   // Do something before request is sent
