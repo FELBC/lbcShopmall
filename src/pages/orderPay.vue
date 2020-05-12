@@ -120,10 +120,15 @@ export default {
       this.payType = payType;
       if(payType === 1){
         // 打开alipay.vue支付页面
-        window.open('/#/order/alipay?orderId=' + this.orderId,'_blank');
+        if(process.env.NODE_ENV === 'production'){
+          window.open('/lbcShopmall/#/order/alipay?orderId=' + this.orderId,'_blank');
+        }else{
+          window.open('/#/order/alipay?orderId=' + this.orderId,'_blank');
+        }
       }else{
+        let payUrl = process.env.NODE_ENV === 'production'?'/wxpay':'pay';
         // 微信支付
-        this.axios.post('/pay',{
+        this.axios.post(payUrl,{ //真实接口地址：/pay
           orderId:this.orderId, // 订单编号
           orderName:'景云商城', // 扫码支付时订单名称
           amount:0.01, // 支付金额单位元

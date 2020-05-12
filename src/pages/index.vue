@@ -9,7 +9,7 @@
               <div class="children">
                 <ul v-for="(item,index) in menuList" :key="index">
                   <li v-for="(sub,idx) in item" :key="idx">
-                    <a :href="sub?`/#/product/${sub.id}`:''">
+                    <a @click="goToDetail(sub)"><!--:href="sub?`/#/product/${sub.id}`:''"-->
                       <img :src="sub?sub.img:require('./../assets/imgs/item-box-1.png')" alt="">
                       {{sub?sub.name:'小米9'}}
                     </a>
@@ -73,9 +73,9 @@
           </div>
           <div class="list-box">
             <div class="list" v-for="(arr,i) in phoneList" :key="i">
-              <div class="item" v-for="(item,j) in arr" :key="j" @click="goToDetail(item)">
+              <div class="item" v-for="(item,j) in arr" :key="j">
                 <span :class="{'new-pro':j%2===0}">新品</span>
-                <div class="item-img">
+                <div class="item-img" @click="goToDetail(item)"> 
                   <img v-lazy="item.mainImage" alt="">
                 </div>
                 <div class="item-info">

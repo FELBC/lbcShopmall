@@ -47,7 +47,7 @@
             </div>
           </div>
           <el-pagination
-            v-if="false"
+            v-if="true"
             class="pagination"
             background
             layout="prev,pager,next"
@@ -63,7 +63,7 @@
             v-infinite-scroll="scrollMore"
             infinite-scroll-disabled="busy"
             infinite-scroll-distance="410"
-            v-if="true"
+            v-if="false"
           >
             <img src="./../assets/imgs/loading-svg/loading-spinning-bubbles.svg" alt="" v-show="loading">
           </div>
@@ -116,8 +116,8 @@ export default {
         }
       }).then(res=>{
         this.loading = false;
-        // this.list = res.list; // 分页el-pagination
-        this.list = this.list.concat(res.list); //加载更多,在原数组基础上累加
+        this.list = res.list; // 分页el-pagination
+        // this.list = this.list.concat(res.list); //加载更多,在原数组基础上累加
         this.total = res.total;
         this.showNextPage = res.hasNextPage;
         this.busy = false;

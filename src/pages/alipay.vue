@@ -23,7 +23,8 @@ export default {
   },
   methods: {
     paySubmit(){
-      this.axios.post('/pay',{
+      let payUrl = process.env.NODE_ENV === 'production'?'/alipay':'pay'
+      this.axios.post(payUrl,{ //真实接口地址：/pay
         orderId:this.orderId, // 订单编号
         orderName:'景云商城', // 扫码支付时订单名称
         amount:0.01, // 支付金额单位元
