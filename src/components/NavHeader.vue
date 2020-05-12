@@ -3,16 +3,15 @@
     <div class="nav-topbar">
       <div class="container">
         <div class="topbar-menu">
-          <a href="https://www.mi.com/index.html" target="_blank">景云商城</a>
-          <a href="https://www.miui.com/" target="_blank">MUI</a>
-          <a href="https://i.mi.com/" target="_blank">云服务</a>
-          <a href="https://www.mi.com/aptitude/list" target="_blank">协议规则</a>
+          <a href="javascript:;">景云商城</a>
+          <a href="javascript:;">云服务</a>
+          <a href="javascript:;">协议规则</a>
         </div>
         <div class="topbar-user">
           <a href="javascript:;" v-if="username">{{username}}</a>
           <a href="javascript:;" v-if="!username" @click="login">登录</a>
           <a href="javascript:;" v-if="username" @click="logout">退出</a>
-          <a href="/#/order/list" v-if="username">我的订单</a>
+          <a @click="goOrderList()" v-if="username">我的订单</a>
           <a href="javascript:;" class="my-cart" @click="goToCart">
             <span class="icon-cart"></span>
             购物车({{cartCount}})
@@ -23,7 +22,7 @@
     <div class="nav-header">
       <div class="container">
         <div class="header-logo">
-          <a href="/#/index"></a>
+          <a href="javascript:;"></a>
         </div>
         <div class="header-menu">
           <div class="item-menu">
@@ -31,7 +30,7 @@
             <div class="children">
               <ul>
                 <li class="product" v-for="(item,index) in phoneList" :key="index">
-                  <a :href="`/#/product/${item.id}`" target="_blank">
+                  <a @click="goToDetail(item)" target="_blank">
                     <div class="pro-img">
                       <img v-lazy="item.mainImage" :alt="item.subtitle">
                     </div>
@@ -50,7 +49,7 @@
             <div class="children">
               <ul>
                 <li class="product">
-                  <a href="" target="_blank">
+                  <a @click="goToDetail({id:45})">
                     <div class="pro-img">
                       <img v-lazy="require('./../assets/imgs/nav-img/nav-3-1.jpg')">
                     </div>
@@ -59,7 +58,7 @@
                   </a>
                 </li>
                 <li class="product">
-                  <a href="" target="_blank">
+                  <a @click="goToDetail({id:45})">
                     <div class="pro-img">
                       <img v-lazy="require('./../assets/imgs/nav-img/nav-3-2.jpg')">
                     </div>
@@ -68,7 +67,7 @@
                   </a>
                 </li>
                 <li class="product">
-                  <a href="" target="_blank">
+                  <a @click="goToDetail({id:45})">
                     <div class="pro-img">
                       <img v-lazy="require('./../assets/imgs/nav-img/nav-3-3.png')">
                     </div>
@@ -77,7 +76,7 @@
                   </a>
                 </li>
                 <li class="product">
-                  <a href="" target="_blank">
+                  <a @click="goToDetail({id:45})">
                     <div class="pro-img">
                       <img v-lazy="require('./../assets/imgs/nav-img/nav-3-4.jpg')">
                     </div>
@@ -86,7 +85,7 @@
                   </a>
                 </li>
                 <li class="product">
-                  <a href="" target="_blank">
+                  <a @click="goToDetail({id:45})">
                     <div class="pro-img">
                       <img v-lazy="require('./../assets/imgs/nav-img/nav-3-5.jpg')">
                     </div>
@@ -95,7 +94,7 @@
                   </a>
                 </li>
                 <li class="product">
-                  <a href="" target="_blank">
+                  <a @click="goToDetail({id:45})">
                     <div class="pro-img">
                       <img v-lazy="require('./../assets/imgs/nav-img/nav-3-6.png')">
                     </div>
@@ -182,7 +181,13 @@ export default {
     },
     goToCart(){
       this.$router.push('/cart');
-    }
+    },
+    goToDetail(item){
+      this.$router.push(`/product/${item.id}`);
+    },
+    goOrderList(){
+      this.$router.push('/order/list');
+    },
   }
 }
 </script>

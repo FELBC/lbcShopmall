@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <div class="container">
-      <a href="/#/index">
+      <a href="javascript:;">
         <img src="./../assets/imgs/login-logo.png" alt="">
       </a>
     </div>

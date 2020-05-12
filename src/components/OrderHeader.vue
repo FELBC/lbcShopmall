@@ -2,7 +2,7 @@
   <div class="order-header">
     <div class="container clearfix">
       <div class="header-logo">
-        <a href="/#/index"></a>
+        <a href="javascript:;"></a>
       </div>
       <div class="title">
         <h2>
