@@ -14,10 +14,10 @@
             <span>扫码登录</span>
           </h3>
           <div class="input">
-            <input type="text" autocomplete="off" placeholder="请输入账号" v-model="username">
+            <input type="text" autocomplete="off" placeholder="账号:qiufeng" v-model="username">
           </div>
           <div class="input">
-            <input type="password" autocomplete="off" placeholder="请输入密码" v-model="password">
+            <input type="password" autocomplete="off" placeholder="密码:qiufeng" v-model="password">
           </div>
           <div class="btn-box">
             <a href="javascript:;" class="btn" @click="login">登录</a>
@@ -40,6 +40,10 @@
   </div>
 </template>
 <script>
+  import { mapActions } from 'vuex';
+  import {
+  Message
+} from 'element-ui'
   export default {
     name:'login',
     data(){
@@ -51,10 +55,40 @@
     },
     methods: {
       login(){
+        let { username, password} = this;
+        this.axios.post('/user/login',{
+          username,
+          password
+        }).then(res=>{
+          this.$cookie.set('userId',res.id,{expires:'Session'});// Session会话级别
+          // this.$store.dispatch('saveUserName',res.username);
+          this.saveUserName(res.username);
+          // query传参 本质get url拼接eg:http://localhost:8080/#/index?from=login
+          // this.$router.push({
+          //   path:'/index',
+          //   query:{
+          //     from:'login'
+          //   }
+          // });
 
+          // params传参 类似post
+          this.$router.push({
+            name:'index', // 组件名称
+            params:{
+              from:'login'
+            }
+          });
+        });
       },
+      ...mapActions(['saveUserName']),
       register(){
-
+        this.axios.post('/user/register',{
+          username:'qiufeng',
+          password:'qiufeng',
+          email:'qiufeng@163.com'
+        }).then(()=>{
+          Message.success('注册成功')
+        });
       }
     },
   }
@@ -105,7 +139,6 @@
               height:100%;
               border:none;
               padding-left:18px;
-              box-sizing: border-box;
             }
           }
           .btn{

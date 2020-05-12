@@ -1,7 +1,10 @@
+const isProduction = process.env.NODE_ENV === 'production';
+
 module.exports = {
-  //配置到自己github reporsity地址 /lbcShopmall/
-  publicPath: process.env.NODE_ENV === 'production' ? './' : '/', // TODO: Remember to change this to fit your need
-  lintOnSave: process.env.NODE_ENV === 'development',
+  
+  //github发布静态项目有子路径，配置到自己github reporsity地址 /lbcShopmall/
+  publicPath: isProduction ? './' : '/', // TODO: Remember to change this to fit your need
+  lintOnSave: !isProduction,
   devServer:{
     host:'localhost',
     port:8080,
@@ -14,5 +17,9 @@ module.exports = {
         }
       }
     }
+  },
+  productionSourceMap:isProduction ? false : true,
+  chainWebpack:(config)=>{
+    config.plugins.delete('prefetch');
   }
 }

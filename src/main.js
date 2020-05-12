@@ -3,6 +3,12 @@ import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios' // 将作用域对象挂载到vue实例上，方便用this调用
 import VueLazyLoad from "vue-lazyload"
+import VueCookie from 'vue-cookie'
+import {
+  Message
+} from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+import store from './store'
 import App from './App.vue'
 // import env from './env'
 
@@ -17,7 +23,7 @@ import App from './App.vue'
 */
 
 // mock开关,true使用本地mock拦截数据，false使用接口数据
-const mock = true;
+const mock = false
 if(mock){
   require('./mock/api')
 }
@@ -33,16 +39,25 @@ axios.defaults.timeout = 8000; // 请求超时时间，提升用户体验
 // 接口错误拦截(状态码需前后台根据业务协定,eg:0-成功，10-未登录)
 axios.interceptors.response.use(function(response){
   let res = response.data;
+  let path = location.hash;
   if(res.status === 0){
     return res.data;
   }else if(res.status === 10){
-    // 无法使用路由进行跳转，路由挂载在vue实例，App.vue及每个页面才能使用this.$route.push,取不到this
-    window.location.href='/#/login'; 
+    if(path !== '#/index'){
+      // 无法使用路由进行跳转，路由挂载在vue实例，App.vue及每个页面才能使用this.$route.push,取不到this
+      window.location.href='/#/login'; 
+    }
+    return Promise.reject(res);
   }else{
-    alert(res.msg)
+    Message.warning(res.msg);
+    return Promise.reject(res);
   }
+},(error)=>{
+  // 服务端异常拦截提示
+  let res = error.response;
+  Message.error(res.data.message);
+  return Promise.reject(error);
 })
-
 // 请求拦截(后台管理系统，表单查询，参数较多)
 axios.interceptors.request.use(function (config) {
   // Do something before request is sent
@@ -54,13 +69,17 @@ axios.interceptors.request.use(function (config) {
 
 // 加载插件
 Vue.use(VueAxios,axios);
+Vue.use(VueCookie)
 Vue.use(VueLazyLoad,{
   loading:require('./assets/imgs/loading-svg/loading-bars.svg')
 });
+// 以对象原型方式在vue实例上进行扩展，避免每个组件进行引用
+Vue.prototype.$message = Message;
 // 默认非生产环境
 Vue.config.productionTip = false
 
 new Vue({
+  store,
   router,
   render: h => h(App),
 }).$mount('#app')
