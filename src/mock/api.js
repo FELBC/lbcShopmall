@@ -10,9 +10,9 @@ Mock.mock(/user\/login/, 'post', {
 	"msg":"登录成功",
 	"data":{
 			"id":7,
-			"username":"jack",
+			"username":"lbc",
 			"password":"",
-			"email":"jack@163.com",
+			"email":"lbc@163.com",
 			"phone":null,
 			"question":null,
 			"answer":null,

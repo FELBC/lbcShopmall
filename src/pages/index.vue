@@ -42,7 +42,7 @@
         </div>
         <swiper :options="swiperOption">
           <swiper-slide v-for="(item,index) in slideList" :key="index">
-            <a :href="`/#/product/${item.id}`">
+            <a @click="goToDetail(item)">
               <img :src="item.img">
             </a>
           </swiper-slide>
@@ -52,12 +52,12 @@
         </swiper>
       </div>
       <div class="ads-box">
-        <a :href="`/#/product/${item.id}`" v-for="(item,index) in adsList" :key="index">
+        <a @click="goToDetail(item)" v-for="(item,index) in adsList" :key="index">
           <img :src="item.img" alt="">
         </a>
       </div>
       <div class="banner">
-        <a :href="`/#/product/30`">
+        <a @click="goToDetail({id:30})">
           <img v-lazy="require('./../assets/imgs/banner-1.png')" alt="">
         </a>
       </div>
@@ -67,13 +67,13 @@
         <h2>手机</h2>
         <div class="wrapper">
           <div class="banner-left">
-            <a href="/#/product/35">
+            <a @click="goToDetail({id:35})">
               <img v-lazy="require('./../assets/imgs/mix-alpha.jpg')" alt="">
             </a>
           </div>
           <div class="list-box">
             <div class="list" v-for="(arr,i) in phoneList" :key="i">
-              <div class="item" v-for="(item,j) in arr" :key="j">
+              <div class="item" v-for="(item,j) in arr" :key="j" @click="goToDetail(item)">
                 <span :class="{'new-pro':j%2===0}">新品</span>
                 <div class="item-img">
                   <img v-lazy="item.mainImage" alt="">
@@ -153,11 +153,11 @@ export default {
             img:require('./../assets/imgs/slider/slide-3.jpg')
           },
           {
-            id:'',
+            id:'42',
             img:require('./../assets/imgs/slider/slide-4.jpg')
           },
           {
-            id:'',
+            id:'45',
             img:require('./../assets/imgs/slider/slide-5.jpg')
           }
         ],
@@ -241,6 +241,9 @@ export default {
     },
     goToCart(){
       this.$router.push('/cart');
+    },
+    goToDetail(item){
+      this.$router.push(`/product/${item.id}`);
     }
   },
 }
